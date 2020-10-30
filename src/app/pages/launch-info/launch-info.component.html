@@ -62,11 +62,23 @@
     <h3 class="text-left">Payload</h3>
     <hr>
     <h3 class="text-left">Rocket</h3>
-    <hr>
-    <h3 class="text-left">Failures</h3>
+    <span *ngIf="this.launch.failures.length != 0" class="text-left">
+      <hr>
+      <h3>Failures</h3>
+      <br>
+      <span *ngFor="let failure of this.launch.failures; let i=index">
+        <h4>Failure #{{ i+1 }}</h4>
+        <ul>
+          <li>Altitude: {{ (failure.altitude == null)?'-':failure.altitude }}</li>
+          <li>Reason: {{ (failure.reason == null)?'-':failure.reason }}</li>
+          <li>Time: {{ (failure.time == null)?'-':failure.time }}</li>
+        </ul>
+      </span>
+    </span>
     <span *ngIf="this.launch.launchpad != undefined || this.launch.launchpad.length != 0">
       <hr>
-      <h3 class="text-left">Launched from [Launchpad info]</h3>
+      <h3 class="text-left">Launched from <span style="color: gray">(Launchpad info)</span></h3>
+      <br>
       <app-launchpad [launchpadId]="this.launch.launchpad"></app-launchpad>
     </span>
     <span *ngIf="this.youtubeUrl != undefined && this.youtubeUrl.length > 0">
@@ -86,7 +98,7 @@
         <li *ngIf="this.launch.links.reddit.recovery != undefined">Recovery: <a href="{{ this.launch.links.reddit.recovery }}">Click here</a></li>
       </ul>
     </span>
-    <span *ngIf="this.launch.links.flickr.original != null || this.launch.links.flickr.original.length != 0">
+    <span *ngIf="this.launch.links.flickr.original.length != 0">
       <hr>
       <h3 class="text-left">Pictures</h3>
       <span *ngFor="let picture of this.launch.links.flickr.original">
