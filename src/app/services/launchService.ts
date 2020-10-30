@@ -17,6 +17,7 @@ export class LaunchService {
 
     setLaunch(launch :any[]){
         this.launch = launch;
+        localStorage.setItem("launch", JSON.stringify(launch));
     }
 
 }

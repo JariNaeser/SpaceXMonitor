@@ -4,12 +4,11 @@
     <br>
     <div class="row">
         <div class="col-md-4">
-            <div class="card" style="width: 18rem;">
-                <img class="card-img-top" src="{{ this.launch.links.patch.small }}"  alt="Card image cap">
+            <div class="card col-md-12">
+                <img class="card-img-top" src="{{ this.launch.links.patch.small }}"  alt="Card image cap" style="max-width: 400px; max-height: 400px;">
                 <div class="card-body">
                   <h5 class="card-title">{{ this.launch.name }}</h5>
                   <p class="card-text">{{ this.launch.details }}</p>
-                  <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
             </div>
         </div>
@@ -50,12 +49,8 @@
                 <td>{{ this.launch.rocket }}</td>
               </tr>
               <tr>
-                <td>Crew</td>
-                <td>-</td>
-              </tr>
-              <tr>
-                <td>Payloads</td>
-                <td>-</td>
+                <td>Flight number</td>
+                <td>{{ this.launch.flight_number }}</td>
               </tr>
             </tbody>
           </table>
@@ -69,15 +64,19 @@
     <h3 class="text-left">Rocket</h3>
     <hr>
     <h3 class="text-left">Failures</h3>
-    <hr>
-    <h3 class="text-left">Launched from</h3>
+    <span *ngIf="this.launch.launchpad != undefined || this.launch.launchpad.length != 0">
+      <hr>
+      <h3 class="text-left">Launched from</h3>
+      <app-launchpad [launchpadId]="this.launch.launchpad"></app-launchpad>
+    </span>
     <span *ngIf="this.youtubeUrl != undefined && this.youtubeUrl.length > 0">
       <hr>
       <h3 class="text-left">Review video stream</h3>
       <br>
       <iframe width="800px" height="500px" [src]="this.youtubeUrl | safe" frameborder="0" allowfullscreen></iframe>
+      <p><a href="{{ this.youtubeUrl }}">Stream not working? Click here</a></p>
     </span>
-    <span *ngIf="this.launch.links.reddit != undefined">
+    <span *ngIf="this.launch.links.reddit.campaign != undefined && this.launch.links.reddit.launch != undefined && this.launch.links.reddit.media != undefined && this.launch.links.reddit.recovery != undefined">
       <hr>
       <h3 class="text-left">Reddit</h3>
       <ul class="text-left">
@@ -87,6 +86,18 @@
         <li *ngIf="this.launch.links.reddit.recovery != undefined">Recovery: <a href="{{ this.launch.links.reddit.recovery }}">Click here</a></li>
       </ul>
     </span>
-    <hr>
-    <h3 class="text-left">Pictures</h3>
+    <span *ngIf="this.launch.links.flickr.original != null || this.launch.links.flickr.original.length != 0">
+      <hr>
+      <h3 class="text-left">Pictures</h3>
+      <span *ngFor="let picture of this.launch.links.flickr.original">
+        <table class="text-center w-100">
+          <tr>
+            <td><img src="{{ picture }}" style="max-width: 400px; max-height: 400px;"></td>
+          </tr>
+          <tr>
+            <td><a href="{{ picture }}">View full picture on Flickr</a></td>
+          </tr>
+        </table>
+      </span>
+    </span>
 </div>

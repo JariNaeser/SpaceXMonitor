@@ -18,10 +18,15 @@ export class LaunchInfoComponent implements OnInit {
     this.launchService.getLaunch().subscribe(data => {
       //Success
       this.launch = data;
-      console.log(this.launch);
     }, error => {
       //Error
     }); 
+
+    if(this.launch.length == 0){
+      this.launch = JSON.parse(localStorage.getItem("launch"));
+    }
+
+    console.log(this.launch.links.flickr);
 
     this.youtubeUrl = 'https://www.youtube.com/embed/' + this.launch.links.youtube_id;
   }
