@@ -4,3 +4,11 @@ Menu:
 History:
     - fix colspan when no elements are found
 
+Map:
+    - icons on overlay not showing
+        - maybe look at diari progetto 
+
+General:
+    - launch-info disappears on reload
+        - used localstorage as workaround
+            - if possible remove it

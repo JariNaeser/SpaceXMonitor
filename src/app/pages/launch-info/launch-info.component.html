@@ -66,7 +66,7 @@
     <h3 class="text-left">Failures</h3>
     <span *ngIf="this.launch.launchpad != undefined || this.launch.launchpad.length != 0">
       <hr>
-      <h3 class="text-left">Launched from</h3>
+      <h3 class="text-left">Launched from [Launchpad info]</h3>
       <app-launchpad [launchpadId]="this.launch.launchpad"></app-launchpad>
     </span>
     <span *ngIf="this.youtubeUrl != undefined && this.youtubeUrl.length > 0">

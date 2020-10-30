@@ -26,8 +26,6 @@ export class LaunchInfoComponent implements OnInit {
       this.launch = JSON.parse(localStorage.getItem("launch"));
     }
 
-    console.log(this.launch.links.flickr);
-
     this.youtubeUrl = 'https://www.youtube.com/embed/' + this.launch.links.youtube_id;
   }
 
