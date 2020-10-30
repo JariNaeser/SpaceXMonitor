@@ -16,6 +16,7 @@ import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { LaunchInfoComponent } from './pages/launch-info/launch-info.component';
 import { SafePipe } from './pipes/safePipe';
 import { LaunchpadComponent } from './pages/launchpad/launchpad.component';
+import { CrewMemberComponent } from './pages/crew-member/crew-member.component';
 
 const appRoutes: Routes = [
   {
@@ -69,7 +70,8 @@ const appRoutes: Routes = [
     NavbarComponent,
     LaunchInfoComponent,
     SafePipe,
-    LaunchpadComponent
+    LaunchpadComponent,
+    CrewMemberComponent
   ],
   imports: [
     BrowserModule,

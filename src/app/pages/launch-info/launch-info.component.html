@@ -56,12 +56,16 @@
           </table>
       </div>
     </div>
-    <hr>
-    <h3 class="text-left">Crew</h3>
+    <span *ngIf="this.launch.crew.length != 0">
+      <hr>
+      <h3 class="text-left">Crew members</h3>
+      <br>
+      <app-crew-member *ngFor="let member of this.launch.crew" [crewMemberId]="member"></app-crew-member>
+    </span>
     <hr>
     <h3 class="text-left">Payload</h3>
-    <hr>
-    <h3 class="text-left">Rocket</h3>
+    <!-- <hr>
+    <h3 class="text-left">Rocket</h3> -->
     <span *ngIf="this.launch.failures.length != 0" class="text-left">
       <hr>
       <h3>Failures</h3>
