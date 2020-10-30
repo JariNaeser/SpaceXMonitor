@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { DataService } from 'src/app/services/dataService';
+import { Router } from '@angular/router';
 import { HistoryService } from 'src/app/services/historyService';
+import { LaunchService } from 'src/app/services/launchService';
 
 declare var $ :any;
 
@@ -12,9 +13,9 @@ declare var $ :any;
 export class HistoryComponent implements OnInit {
 
   private history;
-  private launch;
+  private showLainchInfo = false;
 
-  constructor(private historyService:HistoryService, private dataService: DataService) { }
+  constructor(private historyService:HistoryService, private launchService: LaunchService, private router:Router) { }
 
   ngOnInit() {
     this.getHistory();
@@ -29,8 +30,9 @@ export class HistoryComponent implements OnInit {
     }); 
   }
 
-  setLaunch(launch){
-    this.dataService.currentMessage.subscribe(launch => launch = launch);
+  setLaunchInfo(launch){
+    this.launchService.setLaunch(launch);
+    this.router.navigate(['launch-info']);
   }
 
 }

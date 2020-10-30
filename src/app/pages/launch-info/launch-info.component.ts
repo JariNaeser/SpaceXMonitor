@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { DataService } from 'src/app/services/dataService';
+import { LaunchService } from 'src/app/services/launchService';
 
 @Component({
   selector: 'app-launch-info',
@@ -11,10 +11,16 @@ export class LaunchInfoComponent implements OnInit {
 
   private launch;
 
-  constructor(private activatedRoute: ActivatedRoute, private dataService:DataService) { }
+  constructor(private activatedRoute: ActivatedRoute, private launchService:LaunchService) { }
 
   ngOnInit() {
-    this.dataService.currentMessage.subscribe(launch => this.launch = launch)
+    this.launchService.getLaunch().subscribe(data => {
+      //Success
+      this.launch = data;
+      console.log(this.launch);
+    }, error => {
+      //Error
+    }); 
   }
 
 }
