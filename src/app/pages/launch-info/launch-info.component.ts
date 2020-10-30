@@ -10,6 +10,7 @@ import { LaunchService } from 'src/app/services/launchService';
 export class LaunchInfoComponent implements OnInit {
 
   private launch;
+  private youtubeUrl;
 
   constructor(private activatedRoute: ActivatedRoute, private launchService:LaunchService) { }
 
@@ -21,6 +22,8 @@ export class LaunchInfoComponent implements OnInit {
     }, error => {
       //Error
     }); 
+
+    this.youtubeUrl = 'https://www.youtube.com/embed/' + this.launch.links.youtube_id;
   }
 
 }

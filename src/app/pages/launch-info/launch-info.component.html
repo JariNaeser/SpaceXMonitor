@@ -1,17 +1,92 @@
 <div class="container col-md-12 text-center">
     <br>
-    <h1>{{ this.launch.name }}</h1>
+    <h1 class="text-center">{{ this.launch.name }}</h1>
     <br>
     <div class="row">
-        <div class="col-md-3">
+        <div class="col-md-4">
             <div class="card" style="width: 18rem;">
                 <img class="card-img-top" src="{{ this.launch.links.patch.small }}"  alt="Card image cap">
                 <div class="card-body">
-                  <h5 class="card-title">Card title</h5>
-                  <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+                  <h5 class="card-title">{{ this.launch.name }}</h5>
+                  <p class="card-text">{{ this.launch.details }}</p>
                   <a href="#" class="btn btn-primary">Go somewhere</a>
                 </div>
-              </div>
+            </div>
         </div>
+        <div class="col-md-8">
+          <h3>Data about mission</h3>
+          <br>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th scope="col">Task</th>
+                <th scope="col">Outcome</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Article</td>
+                <td><a href="{{ this.launch.links.article }}">Click here</a></td>
+              </tr>
+              <tr>
+                <td>Wikipedia</td>
+                <td><a href="{{ this.launch.links.wikipedia }}">Click here</a></td>
+              </tr>
+              <tr>
+                <td>Launch date</td>
+                <td>{{ this.launch.date_utc | date:'EEEE, MMMM d, y' }}</td>
+              </tr>
+              <tr>
+                <td>Mission success</td>
+                <td *ngIf="this.launch.success">
+                  <span class="badge badge-success">Yes</span>
+                </td>
+                <td *ngIf="!this.launch.success">
+                  <span class="badge badge-danger">No</span>
+                </td>
+              </tr>
+              <tr>
+                <td>Rocket</td>
+                <td>{{ this.launch.rocket }}</td>
+              </tr>
+              <tr>
+                <td>Crew</td>
+                <td>-</td>
+              </tr>
+              <tr>
+                <td>Payloads</td>
+                <td>-</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
     </div>
+    <hr>
+    <h3 class="text-left">Crew</h3>
+    <hr>
+    <h3 class="text-left">Payload</h3>
+    <hr>
+    <h3 class="text-left">Rocket</h3>
+    <hr>
+    <h3 class="text-left">Failures</h3>
+    <hr>
+    <h3 class="text-left">Launched from</h3>
+    <span *ngIf="this.youtubeUrl != undefined && this.youtubeUrl.length > 0">
+      <hr>
+      <h3 class="text-left">Review video stream</h3>
+      <br>
+      <iframe width="800px" height="500px" [src]="this.youtubeUrl | safe" frameborder="0" allowfullscreen></iframe>
+    </span>
+    <span *ngIf="this.launch.links.reddit != undefined">
+      <hr>
+      <h3 class="text-left">Reddit</h3>
+      <ul class="text-left">
+        <li *ngIf="this.launch.links.reddit.campaign != undefined">Campaign: <a href="{{ this.launch.links.reddit.campaign }}">Click here</a></li>
+        <li *ngIf="this.launch.links.reddit.launch != undefined">Launch: <a href="{{ this.launch.links.reddit.launch }}">Click here</a></li>
+        <li *ngIf="this.launch.links.reddit.media != undefined">Media: <a href="{{ this.launch.links.reddit.media }}">Click here</a></li>
+        <li *ngIf="this.launch.links.reddit.recovery != undefined">Recovery: <a href="{{ this.launch.links.reddit.recovery }}">Click here</a></li>
+      </ul>
+    </span>
+    <hr>
+    <h3 class="text-left">Pictures</h3>
 </div>

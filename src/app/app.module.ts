@@ -14,6 +14,7 @@ import { CompanyComponent } from './pages/company/company.component';
 import { RouterModule, Routes } from '@angular/router';
 import { NavbarComponent } from './navigation/navbar/navbar.component';
 import { LaunchInfoComponent } from './pages/launch-info/launch-info.component';
+import { SafePipe } from './pipes/safePipe';
 
 const appRoutes: Routes = [
   {
@@ -65,7 +66,8 @@ const appRoutes: Routes = [
     FailuresComponent,
     CompanyComponent,
     NavbarComponent,
-    LaunchInfoComponent
+    LaunchInfoComponent,
+    SafePipe
   ],
   imports: [
     BrowserModule,
