@@ -174,3 +174,9 @@ nav ul li ul li a {
 }
 
 /*# sourceMappingURL=style.css.map */
+
+@media only screen and (max-width: 796px) {
+  .shipContainer {
+    margin: 0em;
+  }
+}

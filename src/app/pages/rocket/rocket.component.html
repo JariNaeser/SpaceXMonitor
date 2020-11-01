@@ -160,9 +160,9 @@
     <h5>Images</h5>
     <br>
     <span *ngFor="let rocketImage of this.rocketData.flickr_images">
-        <table class="text-center w-100">
+        <table class="text-center col-md-12">
             <tr>
-              <td><img src="{{ rocketImage }}" style="max-width: 400px; max-height: 400px;"></td>
+              <td><img src="{{ rocketImage }}" style="max-width: 100%; max-height: 50%;"></td>
             </tr>
             <tr>
               <td><a href="{{ rocketImage }}">View full picture on Flickr</a></td>

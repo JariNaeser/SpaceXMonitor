@@ -17,7 +17,6 @@ export class RocketComponent implements OnInit {
     this.rocketService.getRocketData(this.rocketId).subscribe(data => {
       //Success
       this.rocketData = data;
-      console.log(this.rocketData);
     }, error => {
       //Error
     }); 

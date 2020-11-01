@@ -60,7 +60,10 @@
       <br>
       <div class="container">
         <div class="row">
-          <app-crew-member *ngFor="let member of this.launch.crew" [crewMemberId]="member"></app-crew-member>
+          <span *ngFor="let member of this.launch.crew" style="margin-right: 1em;">
+            <app-crew-member  [crewMemberId]="member"></app-crew-member>
+            <br>
+          </span>
         </div>
       </div>    
     </span>
@@ -74,14 +77,15 @@
       <hr>
       <h3 class="text-left">Recovery ships</h3>
       <br>
-      <div class="container">
+      <div class="container col-md-12">
         <div class="row">
-          <app-recovery-ship *ngFor="let ship of this.launch.ships" [shipId]="ship"></app-recovery-ship>
+          <span *ngFor="let ship of this.launch.ships" style="margin-right: 1em;" class="shipContainer">
+            <app-recovery-ship [shipId]="ship"></app-recovery-ship>
+            <br>
+          </span>
         </div>
       </div>    
     </span>
-    <!-- <hr>
-    <h3 class="text-left">Rocket</h3> -->
     <span *ngIf="this.launch.failures.length != 0" class="text-left">
       <hr>
       <h3>Failures</h3>
@@ -99,14 +103,24 @@
       <hr>
       <h3 class="text-left">Launched from <span style="color: gray">(Launchpad info)</span></h3>
       <br>
-      <app-launchpad [launchpadId]="this.launch.launchpad"></app-launchpad>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <app-launchpad [launchpadId]="this.launch.launchpad"></app-launchpad>
+        </div>
+      </div> 
     </span>
     <span *ngIf="this.youtubeUrl != undefined && this.youtubeUrl.length > 0">
       <hr>
       <h3 class="text-left">Review video stream</h3>
       <br>
-      <iframe width="800px" height="500px" [src]="this.youtubeUrl | safe" frameborder="0" allowfullscreen></iframe>
-      <p><a href="{{ this.youtubeUrl }}">Stream not working? Click here</a></p>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <iframe style="width: 100%; height: 400px; max-height: 100%;" [src]="this.youtubeUrl | safe" frameborder="0" allowfullscreen></iframe>
+          <p><a href="{{ this.youtubeUrl }}">Stream not working? Click here</a></p>
+        </div>
+      </div>  
     </span>
     <span *ngIf="this.launch.links.reddit.campaign != undefined && this.launch.links.reddit.launch != undefined && this.launch.links.reddit.media != undefined && this.launch.links.reddit.recovery != undefined">
       <hr>
@@ -121,15 +135,20 @@
     <span *ngIf="this.launch.links.flickr.original.length != 0">
       <hr>
       <h3 class="text-left">Pictures</h3>
-      <span *ngFor="let picture of this.launch.links.flickr.original">
-        <table class="text-center w-100">
-          <tr>
-            <td><img src="{{ picture }}" style="max-width: 400px; max-height: 400px;"></td>
-          </tr>
-          <tr>
-            <td><a href="{{ picture }}">View full picture on Flickr</a></td>
-          </tr>
-        </table>
-      </span>
-    </span>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <span *ngFor="let picture of this.launch.links.flickr.original">
+            <table class="text-center col-md-12">
+              <tr>
+                <td><img src="{{ picture }}" style="max-width: 100%; max-height: 50%;"></td>
+              </tr>
+              <tr>
+                <td><a href="{{ picture }}">View full picture on Flickr</a></td>
+              </tr>
+            </table>
+          </span>
+        </div>
+      </div>
+    </span>  
 </div>
