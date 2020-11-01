@@ -2,10 +2,11 @@
     <br>
     <h1 class="text-center">{{ this.launch.name }}</h1>
     <br>
+    <br>
     <div class="row">
         <div class="col-md-4">
             <div class="card col-md-12">
-                <img class="card-img-top" src="{{ this.launch.links.patch.small }}"  alt="Card image cap" style="max-width: 400px; max-height: 400px;">
+                <img class="card-img-top" src="{{ this.launch.links.patch.small }}"  alt="Card image cap" class="missionImage">
                 <div class="card-body">
                   <h5 class="card-title">{{ this.launch.name }}</h5>
                   <p class="card-text">{{ this.launch.details }}</p>
@@ -62,8 +63,16 @@
       <br>
       <app-crew-member *ngFor="let member of this.launch.crew" [crewMemberId]="member"></app-crew-member>
     </span>
+    <span *ngIf="this.launch.payloads.length != 0">
+      <hr>
+      <h3 class="text-left">Payload</h3>
+      <br>
+      <app-payload *ngFor="let payload of this.launch.payloads" [payloadId]="payload"></app-payload>
+    </span>
+
     <hr>
-    <h3 class="text-left">Payload</h3>
+    <h3 class="text-danger">Recovery ships</h3>
+
     <!-- <hr>
     <h3 class="text-left">Rocket</h3> -->
     <span *ngIf="this.launch.failures.length != 0" class="text-left">

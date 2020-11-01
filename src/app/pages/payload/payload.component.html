@@ -1,0 +1,61 @@
+<div class="table-responsive w-50 putCenter" *ngIf="this.payloadInfo != undefined">
+    <h4>{{ this.payloadInfo.type }}</h4>
+    <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th scope="col">Record</th>
+            <th scope="col">Data</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Type</td>
+            <td>{{ this.payloadInfo.type }}</td>
+          </tr>
+          <tr>
+            <td>Customers</td>
+            <td>
+                <ul>
+                    <li *ngFor="let customer of this.payloadInfo.customers">{{ customer }}</li>
+                </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Manufacturers</td>
+            <td>
+                <ul>
+                    <li *ngFor="let manufacturer of this.payloadInfo.manufacturers">{{ manufacturer }}</li>
+                </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Nationalities</td>
+            <td>
+                <ul>
+                    <li *ngFor="let nationality of this.payloadInfo.nationalities">{{ nationality }}</li>
+                </ul>
+            </td>
+          </tr>
+          <tr>
+            <td>Mass [KG]</td>
+            <td>{{ (this.payloadInfo.mass_kg == null)?'Not defined':this.payloadInfo.mass_kg }}</td>
+          </tr>
+          <tr>
+            <td>Lifespan</td>
+            <td>{{ (this.payloadInfo.lifespan_years == null)?'Not defined':this.payloadInfo.lifespan_years + ' years' }}</td>
+          </tr>
+          <tr>
+            <td>Orbit</td>
+            <td>{{ this.payloadInfo.orbit }}</td>
+          </tr>
+          <tr>
+            <td>Regime</td>
+            <td>{{ this.payloadInfo.regime }}</td>
+          </tr>
+          <tr>
+            <td>Reused</td>
+            <td>{{ this.payloadInfo.reused }}</td>
+          </tr>
+        </tbody>
+      </table>
+</div>
