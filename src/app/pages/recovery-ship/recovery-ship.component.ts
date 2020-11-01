@@ -17,7 +17,6 @@ export class RecoveryShipComponent implements OnInit {
     this.recoveryShipService.getRecoveryShipInfo(this.shipId).subscribe(data => {
       //Success
       this.recoveryShipInfo = data;
-      console.log(this.recoveryShipInfo);
     }, error => {
       //Error
     }); 

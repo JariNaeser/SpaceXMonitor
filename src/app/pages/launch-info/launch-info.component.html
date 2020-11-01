@@ -3,17 +3,17 @@
     <h1 class="text-center">{{ this.launch.name }}</h1>
     <br>
     <br>
-    <div class="row">
-        <div class="col-md-4">
-            <div class="card col-md-12">
-                <img class="card-img-top" src="{{ this.launch.links.patch.small }}"  alt="Card image cap" class="missionImage">
-                <div class="card-body">
-                  <h5 class="card-title">{{ this.launch.name }}</h5>
-                  <p class="card-text">{{ this.launch.details }}</p>
-                </div>
-            </div>
+    <div class="card col-md-12">
+      <div class="row">
+        <div class="col-md-8 text-center">
+          <img class="card-img-top" src="{{ this.launch.links.patch.small }}"  alt="Card image cap" class="missionImage">
+          <div class="card-body">
+            <h5 class="card-title">{{ this.launch.name }}</h5>
+            <p class="card-text">{{ this.launch.details }}</p>
+          </div>          
         </div>
-        <div class="col-md-8">
+        <div class="col-md-4">
+          <br>
           <h3>Data about mission</h3>
           <br>
           <table class="table">
@@ -55,13 +55,18 @@
               </tr>
             </tbody>
           </table>
+        </div>
       </div>
-    </div>
+    </div>  
     <span *ngIf="this.launch.crew.length != 0">
       <hr>
       <h3 class="text-left">Crew members</h3>
       <br>
-      <app-crew-member *ngFor="let member of this.launch.crew" [crewMemberId]="member"></app-crew-member>
+      <div class="container">
+        <div class="row">
+          <app-crew-member *ngFor="let member of this.launch.crew" [crewMemberId]="member"></app-crew-member>
+        </div>
+      </div>    
     </span>
     <span *ngIf="this.launch.payloads.length != 0">
       <hr>

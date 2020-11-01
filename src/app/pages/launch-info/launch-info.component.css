@@ -1,8 +1,5 @@
 .missionImage{
     max-width: 400px; 
     max-height: 400px;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     padding: 1em;
 }

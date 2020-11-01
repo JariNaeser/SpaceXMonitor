@@ -1,38 +1,27 @@
-<br>
-<div class="card" style="width: 100%; padding: 1em">
-    <div class="row">
-        <div class="col-md-4">
-            <img class="card-img-top" src="{{ this.memberData.image }}" style="max-width: 200px; max-height: 400px;" alt="Card image cap">
-        </div>
-        <div class="col-md-8">
-            <div class="card-body">
-                <table class="text-left w-100">
-                    <tr>
-                        <td>Name:</td>
-                        <td>{{ this.memberData.name }}</td>
-                    </tr>
-                    <tr>
-                        <td>Agency:</td>
-                        <td>{{ this.memberData.agency }}</td>
-                    </tr>
-                    <tr>
-                        <td>Wikipedia:</td>
-                        <td><a href="{{ this.memberData.agency }}">Click here</a></td>
-                    </tr>
-                    <tr>
-                        <td>Number of launches (with SpaceX):</td>
-                        <td>{{ this.memberData.launches.length }}</td>
-                    </tr>
-                    <tr>
-                        <td>Status:</td>
-                        <td>{{ this.memberData.status }}</td>
-                    </tr>
-                    <tr>
-                        <td>ID:</td>
-                        <td>{{ this.memberData.id }}</td>
-                    </tr>
-                </table>
-            </div>
-        </div>   
+<div class="card" style="width: 22rem; margin: 1em" *ngIf="this.memberData != undefined">
+    <img class="card-img-top" src="{{ this.memberData.image }}" style="height: 350px; max-width: 350px;" alt="Card image cap">
+    <div class="card-body">
+      <table class="table">
+        <tr>
+            <td>Name:</td>
+            <td>{{ this.memberData.name }}</td>
+        </tr>
+        <tr>
+            <td>Agency:</td>
+            <td>{{ this.memberData.agency }}</td>
+        </tr>
+        <tr>
+            <td>Wikipedia:</td>
+            <td><a href="{{ this.memberData.agency }}">Click here</a></td>
+        </tr>
+        <tr>
+            <td>Number of launches (with SpaceX):</td>
+            <td>{{ this.memberData.launches.length }}</td>
+        </tr>
+        <tr>
+            <td>Status:</td>
+            <td>{{ this.memberData.status }}</td>
+        </tr>
+      </table>
     </div>
 </div>
