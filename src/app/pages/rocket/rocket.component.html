@@ -1,0 +1,172 @@
+<div class="container" *ngIf="this.rocketData != undefined">
+    <br>
+    <h4>{{ this.rocketData.name }}</h4>
+    <br>
+    <p>{{ this.rocketData.description }}</p>
+    <br>
+    <h5>General</h5>
+    <br>
+    <table class="table">
+        <tr>
+            <td>Status:</td>
+            <td>{{ (this.rocketData.active)?'Active':'Inactive' }}</td>
+        </tr>
+        <tr>
+            <td>Boosters:</td>
+            <td>{{ this.rocketData.boosters }}</td>
+        </tr>
+        <tr>
+            <td>Company:</td>
+            <td>{{ this.rocketData.company }}</td>
+        </tr>
+        <tr>
+            <td>Cost per launch:</td>
+            <td>{{ this.rocketData.cost_per_launch }} $</td>
+        </tr>
+        <tr>
+            <td>Country:</td>
+            <td>{{ this.rocketData.country }}</td>
+        </tr>
+        <tr>
+            <td>Diameter:</td>
+            <td>{{ this.rocketData.diameter.meters }} m</td>
+        </tr>
+        <tr>
+            <td>Height:</td>
+            <td>{{ this.rocketData.height.meters }} m</td>
+        </tr>
+        <tr>
+            <td>Mass:</td>
+            <td>{{ this.rocketData.mass.kg }} kg</td>
+        </tr>
+        <tr>
+            <td>Stages:</td>
+            <td>{{ this.rocketData.stages }}</td>
+        </tr>
+        <tr>
+            <td>Success rate:</td>
+            <td>{{ this.rocketData.success_rate_pct }} %</td>
+        </tr>
+        <tr>
+            <td>Landing legs:</td>
+            <td>{{ this.rocketData.landing_legs.number }}</td>
+        </tr>
+        <tr>
+            <td>Landing legs material:</td>
+            <td>{{ this.rocketData.landing_legs.material }}</td>
+        </tr>
+        <tr>
+            <td>Wikipedia:</td>
+            <td><a href="{{ this.rocketData.wikipedia }}">Click here</a></td>
+        </tr>
+    </table>
+    <br>
+    <h5>Engines</h5>
+    <br>
+    <table class="table">
+        <tr>
+            <td>Number:</td>
+            <td>{{ this.rocketData.engines.number }}</td>
+        </tr>
+        <tr>
+            <td>Type:</td>
+            <td>{{ this.rocketData.engines.type }}</td>
+        </tr>
+        <tr>
+            <td>Version:</td>
+            <td>{{ this.rocketData.engines.version }}</td>
+        </tr>
+        <tr>
+            <td>Layout:</td>
+            <td>{{ this.rocketData.engines.layout }}</td>
+        </tr>
+        <tr>
+            <td>Propellant types:</td>
+            <td>
+                <ul>
+                    <li>{{ this.rocketData.engines.propellant_1 }}</li>
+                    <li>{{ this.rocketData.engines.propellant_2 }}</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Thrust sea level:</td>
+            <td>{{ this.rocketData.engines.thrust_sea_level.lbf }} lbf</td>
+        </tr>
+        <tr>
+            <td>Thrust vacuum:</td>
+            <td>{{ this.rocketData.engines.thrust_vacuum.lbf }} lbf</td>
+        </tr>
+        <tr>
+            <td>Thrust to weight:</td>
+            <td>{{ this.rocketData.engines.thrust_to_weight }}</td>
+        </tr>
+        <tr>
+            <td>Engine loss max:</td>
+            <td>{{ this.rocketData.engines.engine_loss_max }}</td>
+        </tr>
+    </table>
+    <br>
+    <h5>First stage</h5>
+    <br>
+    <table class="table">
+        <tr>
+            <td>Burn time:</td>
+            <td>{{ this.rocketData.first_stage.burn_time_sec }}</td>
+        </tr>
+        <tr>
+            <td>Engines:</td>
+            <td>{{ this.rocketData.first_stage.engines }}</td>
+        </tr>
+        <tr>
+            <td>Fuel amount:</td>
+            <td>{{ this.rocketData.first_stage.fuel_amount_tons }} tons</td>
+        </tr>
+        <tr>
+            <td>Reusable:</td>
+            <td>{{ this.rocketData.first_stage.reusable }}</td>
+        </tr>
+        <tr>
+            <td>Thrust sea level:</td>
+            <td>{{ this.rocketData.first_stage.thrust_sea_level.lbf }} lbf</td>
+        </tr>
+        <tr>
+            <td>Thrust vacuum:</td>
+            <td>{{ this.rocketData.first_stage.thrust_vacuum.lbf }} lbf</td>
+        </tr>
+    </table>
+    <br>
+    <h5>Second stage</h5>
+    <br>
+    <table class="table">
+        <tr>
+            <td>Burn time:</td>
+            <td>{{ this.rocketData.second_stage.burn_time_sec }}</td>
+        </tr>
+        <tr>
+            <td>Engines:</td>
+            <td>{{ this.rocketData.second_stage.engines }}</td>
+        </tr>
+        <tr>
+            <td>Fuel amount:</td>
+            <td>{{ this.rocketData.second_stage.fuel_amount_tons }} tons</td>
+        </tr>
+        <tr>
+            <td>Reusable:</td>
+            <td>{{ this.rocketData.second_stage.reusable }}</td>
+        </tr>
+    </table>
+    <br>
+    <h5>Images</h5>
+    <br>
+    <span *ngFor="let rocketImage of this.rocketData.flickr_images">
+        <table class="text-center w-100">
+            <tr>
+              <td><img src="{{ rocketImage }}" style="max-width: 400px; max-height: 400px;"></td>
+            </tr>
+            <tr>
+              <td><a href="{{ rocketImage }}">View full picture on Flickr</a></td>
+            </tr>
+        </table>
+    </span>
+</div>

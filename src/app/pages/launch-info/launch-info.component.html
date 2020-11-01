@@ -14,15 +14,9 @@
         </div>
         <div class="col-md-4">
           <br>
-          <h3>Data about mission</h3>
+          <h3>Data about the mission</h3>
           <br>
           <table class="table">
-            <thead class="thead-dark">
-              <tr>
-                <th scope="col">Task</th>
-                <th scope="col">Outcome</th>
-              </tr>
-            </thead>
             <tbody>
               <tr>
                 <td>Article</td>
@@ -46,10 +40,6 @@
                 </td>
               </tr>
               <tr>
-                <td>Rocket</td>
-                <td>{{ this.launch.rocket }}</td>
-              </tr>
-              <tr>
                 <td>Flight number</td>
                 <td>{{ this.launch.flight_number }}</td>
               </tr>
@@ -58,6 +48,12 @@
         </div>
       </div>
     </div>  
+    <span *ngIf="this.launch.rocket != null">
+      <hr>
+      <h3 class="text-left">Rocket</h3>
+      <br>
+      <app-rocket [rocketId]="this.launch.rocket"></app-rocket>
+    </span>
     <span *ngIf="this.launch.crew.length != 0">
       <hr>
       <h3 class="text-left">Crew members</h3>
