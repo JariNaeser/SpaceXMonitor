@@ -17,7 +17,6 @@ export class PayloadComponent implements OnInit {
     this.payloadService.getPayloadInfo(this.payloadId).subscribe(data => {
       //Success
       this.payloadInfo = data;
-      console.log(this.payloadInfo);
     }, error => {
       //Error
     }); 

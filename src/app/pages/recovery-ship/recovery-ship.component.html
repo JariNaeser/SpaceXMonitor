@@ -1,0 +1,49 @@
+<div class="card" style="width: 22rem; margin: 1em" *ngIf="this.recoveryShipInfo != undefined">
+    <img class="card-img-top" src="{{ this.recoveryShipInfo.image }}" style="height: 200px; max-width: 350px;" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{ this.recoveryShipInfo.name }}</h5>
+      <table class="table">
+          <tr>
+              <td>Status:</td>
+              <td>{{ (this.recoveryShipInfo.isActive)?'Active':'Inactive' }}</td>
+          </tr>
+          <tr>
+            <td>Home Port:</td>
+            <td>{{ this.recoveryShipInfo.home_port }}</td>
+        </tr>
+        <tr>
+            <td>imo:</td>
+            <td>{{ this.recoveryShipInfo.home_port }}</td>
+        </tr>
+        <tr>
+            <td>Assisted launches:</td>
+            <td>{{ this.recoveryShipInfo.launches.length }}</td>
+        </tr>
+        <tr>
+            <td>Weight:</td>
+            <td>{{ this.recoveryShipInfo.mass_kg }} kg</td>
+        </tr>
+        <tr>
+            <td>Model:</td>
+            <td>{{ this.recoveryShipInfo.model }}</td>
+        </tr>
+        <tr>
+            <td>Roles:</td>
+            <td>
+                <ul>
+                    <li *ngFor="let role of this.recoveryShipInfo.roles">{{ role }}</li>
+                </ul>
+            </td>
+        </tr>
+        <tr>
+            <td>Type:</td>
+            <td>{{ this.recoveryShipInfo.type }}</td>
+        </tr>
+        <tr>
+            <td>Year built:</td>
+            <td>{{ this.recoveryShipInfo.year_built }}</td>
+        </tr>
+      </table>
+      <a href="{{ this.recoveryShipInfo.link }}" class="btn btn-primary">View ship info</a>
+    </div>
+</div>

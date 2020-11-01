@@ -18,6 +18,7 @@ import { SafePipe } from './pipes/safePipe';
 import { LaunchpadComponent } from './pages/launchpad/launchpad.component';
 import { CrewMemberComponent } from './pages/crew-member/crew-member.component';
 import { PayloadComponent } from './pages/payload/payload.component';
+import { RecoveryShipComponent } from './pages/recovery-ship/recovery-ship.component';
 
 const appRoutes: Routes = [
   {
@@ -73,7 +74,8 @@ const appRoutes: Routes = [
     SafePipe,
     LaunchpadComponent,
     CrewMemberComponent,
-    PayloadComponent
+    PayloadComponent,
+    RecoveryShipComponent
   ],
   imports: [
     BrowserModule,

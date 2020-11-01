@@ -69,10 +69,16 @@
       <br>
       <app-payload *ngFor="let payload of this.launch.payloads" [payloadId]="payload"></app-payload>
     </span>
-
-    <hr>
-    <h3 class="text-danger">Recovery ships</h3>
-
+    <span *ngIf="this.launch.ships.length != 0">
+      <hr>
+      <h3 class="text-left">Recovery ships</h3>
+      <br>
+      <div class="container">
+        <div class="row">
+          <app-recovery-ship *ngFor="let ship of this.launch.ships" [shipId]="ship"></app-recovery-ship>
+        </div>
+      </div>    
+    </span>
     <!-- <hr>
     <h3 class="text-left">Rocket</h3> -->
     <span *ngIf="this.launch.failures.length != 0" class="text-left">
