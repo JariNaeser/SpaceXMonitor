@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { LaunchpadService } from 'src/app/services/launchPadService';
+import { LaunchpadService } from 'src/app/services/launchpadService';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
 
