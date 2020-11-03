@@ -18,7 +18,7 @@ import { CrewMemberComponent } from './pages/crew-member/crew-member.component';
 import { PayloadComponent } from './pages/payload/payload.component';
 import { RecoveryShipComponent } from './pages/recovery-ship/recovery-ship.component';
 import { RocketComponent } from './pages/rocket/rocket.component';
-import { EventsComponent } from './pages/events/events.component';
+import { MilestonesComponent } from './pages/milestones/milestones.component';
 
 const appRoutes: Routes = [
   {
@@ -30,8 +30,8 @@ const appRoutes: Routes = [
     component: HomeComponent 
   },
   { 
-    path: 'events', 
-    component: EventsComponent 
+    path: 'milestones', 
+    component: MilestonesComponent 
   },
   { 
     path: 'company', 
@@ -52,7 +52,11 @@ const appRoutes: Routes = [
   { 
     path: 'launch-info', 
     component: LaunchInfoComponent 
-  }
+  },
+  {
+    path: '**', 
+    component: HomeComponent 
+  },
 ];
 
 @NgModule({
@@ -71,7 +75,7 @@ const appRoutes: Routes = [
     PayloadComponent,
     RecoveryShipComponent,
     RocketComponent,
-    EventsComponent
+    MilestonesComponent
   ],
   imports: [
     BrowserModule,

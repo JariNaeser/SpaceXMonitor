@@ -1,0 +1,22 @@
+<div class="container col-md-12">
+    <br>
+    <h1 class="text-center">Company Milestones</h1>
+    <div class="row">
+        <div class="col-md-2"></div>
+        <div class="col-md-8">
+            <br>
+            <span *ngFor="let event of this.companyEvents">
+                <div class="card">
+                    <div class="card-body">
+                      <h5 class="card-title">{{ event.title }}</h5>
+                      <h6 class="card-subtitle mb-2 text-muted">{{ event.event_date_utc | date:'EEEE, MMMM d, y' }}</h6>
+                      <br>
+                      <p class="card-text">{{ event.details }}</p>
+                      <a href="{{ event.links.article }}" class="card-link">View article</a>
+                    </div>
+                  </div>
+                  <br>
+            </span>
+        </div>
+    </div>
+</div>
