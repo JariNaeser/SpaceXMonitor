@@ -1,1 +1,65 @@
-<p>company works!</p>
+<div class="container col-md-12 text-center">
+    <br>
+    <h1>SpaceX</h1>
+    <br>
+    <div class="row">
+        <div class="col-md-6" *ngIf="this.companyData != undefined">
+            <h4>General</h4>
+            <br>
+            <table class="table table-bordered">
+                <tr>
+                    <td>Founded</td>
+                    <td>{{ this.companyData.founded }}</td>
+                </tr>
+                <tr>
+                    <td>Founder</td>
+                    <td>{{ this.companyData.founder }}</td>
+                </tr>
+                <tr>
+                    <td>Employees</td>
+                    <td>{{ this.companyData.employees }}</td>
+                </tr>
+                <tr>
+                    <td>CEO</td>
+                    <td>{{ this.companyData.ceo }}</td>
+                </tr>
+                <tr>
+                    <td>COO</td>
+                    <td>{{ this.companyData.coo }}</td>
+                </tr>
+                <tr>
+                    <td>CTO</td>
+                    <td>{{ this.companyData.cto }}</td>
+                </tr>
+                <tr>
+                    <td>CTO Propulsion</td>
+                    <td>{{ this.companyData.cto_propulsion }}</td>
+                </tr>
+                <tr>
+                    <td>Launch sites</td>
+                    <td>{{ this.companyData.launch_sites }}</td>
+                </tr>
+                <tr>
+                    <td>Test sites</td>
+                    <td>{{ this.companyData.test_sites }}</td>
+                </tr>
+                <tr>
+                    <td>Vehicles</td>
+                    <td>{{ this.companyData.vehicles }}</td>
+                </tr>
+            </table>
+            <h4>Summary</h4>
+            <br>
+            <p>{{ this.companyData.summary }}</p>
+            <br>
+            <h4>Headquarters</h4>
+            <br>
+            <div class="map" id="map" style="width: 100%; height: 500px"></div>
+            <br>
+        </div>
+        <div class="col-md-1"></div>
+        <div class="col-md-4">
+            <div id="tweetContainer"></div>
+        </div>
+    </div>
+</div>

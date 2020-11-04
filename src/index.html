@@ -15,9 +15,22 @@
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
   <!-- MAPBOX -->
   <script src='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.js'></script>
-  <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet' />
+  <link href='https://api.mapbox.com/mapbox-gl-js/v1.0.0/mapbox-gl.css' rel='stylesheet'/>
+  <!-- Twitter API -->
+  <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
 </head>
 <body>
   <app-root></app-root>
+  <script>
+    $(document).ready(function(){
+      twttr.widgets.createTimeline(
+        {
+          sourceType: "spacex",
+          screenName: "SpaceX"
+        },
+        document.getElementById("tweetContainer")
+      );
+    })
+  </script>
 </body>
 </html>
