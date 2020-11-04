@@ -3,6 +3,8 @@ import { CompanyService } from 'src/app/services/companyService';
 import * as mapboxgl from 'mapbox-gl';
 import { environment } from 'src/environments/environment';
 
+declare var $ :any;
+
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
@@ -45,6 +47,18 @@ export class CompanyComponent implements OnInit {
     }, error => {
       //Error
     }); 
+
+    $(document).ready(function(){
+      // @ts-ignore
+      twttr.widgets.createTimeline(
+        {
+          sourceType: "spacex",
+          screenName: "SpaceX"
+        },
+        document.getElementById("tweetContainer")
+      );
+    })
+
   }
 
 }

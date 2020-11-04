@@ -1,6 +1,3 @@
-Menu:
-    - Make navbar usable on mobile, button doesn't open
-
 History:
     - fix colspan when no elements are found
 
