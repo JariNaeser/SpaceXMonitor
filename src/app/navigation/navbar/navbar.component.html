@@ -1,28 +1,38 @@
 <!-- Header -->
-<section class="navigation">
+<!-- <section class="navigation">
     <div class="nav-container">
       <div class="brand">
         <a href="#!">SpaceX Monitor</a>
       </div>
       <nav>
         <div class="nav-mobile"><a id="nav-toggle" href="#!"><span></span></a></div>
-        <ul class="nav-list">
-          <li>
-            <a [routerLink]="['home']">Home</a>
-          </li>
-          <li>
-            <a [routerLink]="['future-events']">Future events</a>
-          </li>
-          <li>
-            <a [routerLink]="['history']">History</a>
-          </li>
-          <li>
-            <a [routerLink]="['milestones']">Milestones</a>
-          </li>
-          <li>
-            <a [routerLink]="['company']">Company</a>
-          </li>
-        </ul>
+        
       </nav>
     </div>
-</section>
+</section> -->
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand text-truncate" href="#">SpaceX Monitor</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation" id="dropdownButton">
+      <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="justify-content-end collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav nav-list">
+      <li class="nav-item active">
+        <a [routerLink]="['home']" class="nav-link">Home</a>
+      </li>
+      <li class="nav-item active">
+        <a [routerLink]="['future-events']" class="nav-link">Future events</a>
+      </li>
+      <li class="nav-item active">
+        <a [routerLink]="['history']" class="nav-link">History</a>
+      </li>
+      <li class="nav-item active">
+        <a [routerLink]="['milestones']" class="nav-link">Milestones</a>
+      </li>
+      <li class="nav-item active">
+        <a [routerLink]="['company']" class="nav-link">Company</a>
+      </li>
+    </ul>
+  </div>
+</nav>

@@ -1,52 +1,54 @@
-<div class="container col-md-12 text-center" id="background">
-    <br>
-    <h1 class="text-white">History</h1>
-    <br>
-    <div class="table-responsive">
-        <table class="table" style="background-color: white;">
-            <thead style="background-color: #262626; color: white;">
-              <tr>
-                <th scope="col">Patch</th>
-                <th scope="col">Flight number</th>
-                <th scope="col">Name</th>
-                <th scope="col">Launch date</th>
-                <th scope="col">Success</th>
-                <th scope="col">View more</th>
-              </tr>
-            </thead>
-            <tbody id="tableBody"> 
-                <span *ngIf="this.history == undefined || this.history.length == 0">
-                    <tr>
-                        <td colspan="6">No missions were found.</td>
-                    </tr>
-                </span>
-                <span *ngIf="this.history != undefined && this.history.length > 0"></span>
-                <tr *ngFor="let launch of this.history">
-                    <td>
-                        <img src="{{ launch.links.patch.small }}" height="64px" width="64px">
-                    </td>
-                    <td>
-                        {{ launch.flight_number }}
-                    </td>
-                    <td>
-                        {{ launch.name }}
-                    </td>
-                    <td>
-                        {{ launch.date_utc | date:'EEEE, MMMM d, y' }}
-                    </td>
-                    <td>
-                        <span *ngIf="launch.success">
-                            <i class="fas fa-check text-success"></i>
-                        </span>
-                        <span *ngIf="!launch.success">
-                            <i class="fas fa-times text-danger"></i>
-                        </span>
-                    </td>
-                    <td>
-                        <a (click)="setLaunchInfo(this.launch)" style="color: blue;">View more</a>
-                    </td>
+<div id="background">
+    <div class="container col-md-12 text-center">
+        <br>
+        <h1 class="text-white">History</h1>
+        <br>
+        <div class="table-responsive">
+            <table class="table" style="background-color: white;">
+                <thead style="background-color: #262626; color: white;">
+                <tr>
+                    <th scope="col">Patch</th>
+                    <th scope="col">Flight number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Launch date</th>
+                    <th scope="col">Success</th>
+                    <th scope="col">View more</th>
                 </tr>
-            </tbody>
-          </table>               
+                </thead>
+                <tbody id="tableBody"> 
+                    <span *ngIf="this.history == undefined || this.history.length == 0">
+                        <tr>
+                            <td colspan="6">No missions were found.</td>
+                        </tr>
+                    </span>
+                    <span *ngIf="this.history != undefined && this.history.length > 0"></span>
+                    <tr *ngFor="let launch of this.history">
+                        <td>
+                            <img src="{{ launch.links.patch.small }}" height="64px" width="64px">
+                        </td>
+                        <td>
+                            {{ launch.flight_number }}
+                        </td>
+                        <td>
+                            {{ launch.name }}
+                        </td>
+                        <td>
+                            {{ launch.date_utc | date:'EEEE, MMMM d, y' }}
+                        </td>
+                        <td>
+                            <span *ngIf="launch.success">
+                                <i class="fas fa-check text-success"></i>
+                            </span>
+                            <span *ngIf="!launch.success">
+                                <i class="fas fa-times text-danger"></i>
+                            </span>
+                        </td>
+                        <td>
+                            <a (click)="setLaunchInfo(this.launch)" style="color: blue;">View more</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>               
+        </div>
     </div>
 </div>
