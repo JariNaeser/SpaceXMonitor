@@ -1,10 +1,13 @@
 #countdownContainer{
-    position: absolute;
+    position: relative;
     left: 50%;
-    top: 50%;
-    transform: translate(-50%, -50%);
-    color: white;
+    top: 40%;
+    transform: translate(-50%, -40%);
     font-size: 30px;
+    background-color: white;
+    padding: 1em;
+    border-radius: 5px;
+    width: 30vw;
 }
 
 #countdownContainer a:hover{
@@ -18,4 +21,16 @@
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
+}
+
+@media only screen and (max-width: 950px) {
+    #countdownContainer{
+        width: 50vw;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    #countdownContainer{
+        width: 95vw;
+    }
 }
