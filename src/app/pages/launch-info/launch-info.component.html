@@ -20,11 +20,11 @@
             <tbody>
               <tr>
                 <td>Article</td>
-                <td><a href="{{ this.launch.links.article }}">Click here</a></td>
+                <td><a href="{{ this.launch.links.article }}" target="_blank">Click here</a></td>
               </tr>
               <tr>
                 <td>Wikipedia</td>
-                <td><a href="{{ this.launch.links.wikipedia }}">Click here</a></td>
+                <td><a href="{{ this.launch.links.wikipedia }}" target="_blank">Click here</a></td>
               </tr>
               <tr>
                 <td>Launch date</td>
@@ -118,7 +118,7 @@
         <div class="col-md-3"></div>
         <div class="col-md-6">
           <iframe style="width: 100%; height: 400px; max-height: 100%;" [src]="this.youtubeUrl | safe" frameborder="0" allowfullscreen></iframe>
-          <p><a href="{{ this.youtubeUrl }}">Stream not working? Click here</a></p>
+          <p><a href="{{ this.youtubeUrl }}" target="_blank">Stream not working? Click here</a></p>
         </div>
       </div>  
     </span>
@@ -126,10 +126,10 @@
       <hr>
       <h3 class="text-left">Reddit</h3>
       <ul class="text-left">
-        <li *ngIf="this.launch.links.reddit.campaign != undefined">Campaign: <a href="{{ this.launch.links.reddit.campaign }}">Click here</a></li>
-        <li *ngIf="this.launch.links.reddit.launch != undefined">Launch: <a href="{{ this.launch.links.reddit.launch }}">Click here</a></li>
-        <li *ngIf="this.launch.links.reddit.media != undefined">Media: <a href="{{ this.launch.links.reddit.media }}">Click here</a></li>
-        <li *ngIf="this.launch.links.reddit.recovery != undefined">Recovery: <a href="{{ this.launch.links.reddit.recovery }}">Click here</a></li>
+        <li *ngIf="this.launch.links.reddit.campaign != undefined">Campaign: <a href="{{ this.launch.links.reddit.campaign }}" target="_blank">Click here</a></li>
+        <li *ngIf="this.launch.links.reddit.launch != undefined">Launch: <a href="{{ this.launch.links.reddit.launch }}" target="_blank">Click here</a></li>
+        <li *ngIf="this.launch.links.reddit.media != undefined">Media: <a href="{{ this.launch.links.reddit.media }}" target="_blank">Click here</a></li>
+        <li *ngIf="this.launch.links.reddit.recovery != undefined">Recovery: <a href="{{ this.launch.links.reddit.recovery }}" target="_blank">Click here</a></li>
       </ul>
     </span>
     <span *ngIf="this.launch.links.flickr.original.length != 0">
@@ -144,7 +144,7 @@
                 <td><img src="{{ picture }}" style="max-width: 100%; max-height: 50%;"></td>
               </tr>
               <tr>
-                <td><a href="{{ picture }}">View full picture on Flickr</a></td>
+                <td><a href="{{ picture }}" target="_blank">View full picture on Flickr</a></td>
               </tr>
             </table>
           </span>
