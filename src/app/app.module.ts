@@ -19,6 +19,7 @@ import { PayloadComponent } from './pages/payload/payload.component';
 import { RecoveryShipComponent } from './pages/recovery-ship/recovery-ship.component';
 import { RocketComponent } from './pages/rocket/rocket.component';
 import { MilestonesComponent } from './pages/milestones/milestones.component';
+import { FutureLaunchInfoComponent } from './pages/future-launch-info/future-launch-info.component';
 
 const appRoutes: Routes = [
   {
@@ -54,9 +55,13 @@ const appRoutes: Routes = [
     component: LaunchInfoComponent 
   },
   {
+    path: 'future-launch-info', 
+    component: FutureLaunchInfoComponent 
+  },
+  {
     path: '**', 
     component: HomeComponent 
-  },
+  }
 ];
 
 @NgModule({
@@ -75,7 +80,8 @@ const appRoutes: Routes = [
     PayloadComponent,
     RecoveryShipComponent,
     RocketComponent,
-    MilestonesComponent
+    MilestonesComponent,
+    FutureLaunchInfoComponent
   ],
   imports: [
     BrowserModule,

@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router, RouterEvent } from '@angular/router';
 import { HomeService } from 'src/app/services/homeService';
+import { LaunchService } from 'src/app/services/launchService';
 
 declare var $ :any;
 
@@ -10,7 +12,7 @@ declare var $ :any;
 })
 export class HomeComponent implements OnInit {
 
-  constructor(private homeService:HomeService) { }
+  constructor(private homeService:HomeService, private launchService:LaunchService, private router:Router) { }
 
   private nextLaunch;
 
@@ -59,6 +61,11 @@ export class HomeComponent implements OnInit {
     }else{
       $('#countdown').text("Next event not found.");
     }  
+  }
+
+  showNextLaunch(){
+    this.launchService.setFutureLaunch(this.nextLaunch);
+    this.router.navigate(['future-launch-info']);
   }
 
 }

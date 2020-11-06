@@ -1,1 +1,45 @@
-<p>future-events works!</p>
+<div id="background">
+    <div class="container col-md-12 text-center">
+        <br>
+        <h1 class="text-white">Future Events</h1>
+        <br>
+        <div class="table-responsive">
+            <table class="table" style="background-color: white;">
+                <thead style="background-color: #262626; color: white;">
+                <tr>
+                    <th scope="col">Patch</th>
+                    <th scope="col">Flight number</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Launch date</th>
+                    <th scope="col">View more</th>
+                </tr>
+                </thead>
+                <tbody id="tableBody"> 
+                    <span *ngIf="this.futureEvents == undefined || this.futureEvents.length == 0">
+                        <tr>
+                            <td colspan="6">No missions were found.</td>
+                        </tr>
+                    </span>
+                    <span *ngIf="this.futureEvents != undefined && this.futureEvents.length > 0"></span>
+                    <tr *ngFor="let futureEvent of this.futureEvents">
+                        <td>
+                            <i class="fas fa-rocket" style="font-size: 32px;"></i>
+                        </td>
+                        <td>
+                            {{ futureEvent.flight_number }}
+                        </td>
+                        <td>
+                            {{ futureEvent.name }}
+                        </td>
+                        <td>
+                            {{ futureEvent.date_utc | date:'EEEE, MMMM d, y' }}
+                        </td>
+                        <td>
+                            <a (click)="setLaunchInfo(this.futureEvent)" style="color: blue;">View more</a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>               
+        </div>
+    </div>
+</div>

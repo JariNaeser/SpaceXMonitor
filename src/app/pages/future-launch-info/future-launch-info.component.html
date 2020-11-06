@@ -1,0 +1,97 @@
+<div class="container col-md-12 text-center">
+    <br>
+    <h1 class="text-center">{{ this.futureLaunch.name }}</h1>
+    <br>
+    <br>
+    <div class="card col-md-12">
+      <div class="row">
+        <div class="col-md-8 text-center">
+          <div class="card-body">
+            <h5 class="card-title">{{ this.futureLaunch.name }}</h5>
+            <p class="card-text">{{ this.futureLaunch.details }}</p>
+          </div>          
+        </div>
+        <div class="col-md-4">
+          <br>
+          <h3>Data about the mission</h3>
+          <br>
+          <table class="table">
+            <tbody>
+              <tr>
+                <td>Wikipedia</td>
+                <td><a href="{{ this.futureLaunch.links.wikipedia }}" target="_blank">Click here</a></td>
+              </tr>
+              <tr>
+                <td>Launch date</td>
+                <td>{{ this.futureLaunch.date_utc | date:'EEEE, MMMM d, y' }}</td>
+              </tr>
+              <tr>
+                <td>Flight number</td>
+                <td>{{ this.futureLaunch.flight_number }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>  
+    <span *ngIf="this.futureLaunch.rocket != null">
+      <hr>
+      <h3 class="text-left">Rocket</h3>
+      <br>
+      <app-rocket [rocketId]="this.futureLaunch.rocket"></app-rocket>
+    </span>
+    <span *ngIf="this.futureLaunch.crew.length != 0">
+      <hr>
+      <h3 class="text-left">Crew members</h3>
+      <br>
+      <div class="container">
+        <div class="row">
+          <span *ngFor="let member of this.futureLaunch.crew" style="margin-right: 1em;">
+            <app-crew-member  [crewMemberId]="member"></app-crew-member>
+            <br>
+          </span>
+        </div>
+      </div>    
+    </span>
+    <span *ngIf="this.futureLaunch.payloads.length != 0">
+      <hr>
+      <h3 class="text-left">Payload</h3>
+      <br>
+      <app-payload *ngFor="let payload of this.futureLaunch.payloads" [payloadId]="payload"></app-payload>
+    </span>
+    <span *ngIf="this.futureLaunch.ships.length != 0">
+      <hr>
+      <h3 class="text-left">Recovery ships</h3>
+      <br>
+      <div class="container col-md-12">
+        <div class="row">
+          <span *ngFor="let ship of this.futureLaunch.ships" style="margin-right: 1em;" class="shipContainer">
+            <app-recovery-ship [shipId]="ship"></app-recovery-ship>
+            <br>
+          </span>
+        </div>
+      </div>    
+    </span>
+    <span *ngIf="this.futureLaunch.launchpad != undefined || this.futureLaunch.launchpad.length != 0">
+      <hr>
+      <h3 class="text-left">Launched from <span style="color: gray">(Launchpad info)</span></h3>
+      <br>
+      <div class="row">
+        <div class="col-md-3"></div>
+        <div class="col-md-6">
+          <app-launchpad [launchpadId]="this.futureLaunch.launchpad"></app-launchpad>
+        </div>
+      </div> 
+    </span>
+    <span *ngIf="this.futureLaunch.links.reddit.campaign != undefined && this.futureLaunch.links.reddit.launch != undefined && this.futureLaunch.links.reddit.media != undefined && this.futureLaunch.links.reddit.recovery != undefined">
+      <hr>
+      <h3 class="text-left">Reddit</h3>
+      <ul class="text-left">
+        <li *ngIf="this.futureLaunch.links.reddit.campaign != undefined">Campaign: <a href="{{ this.futureLaunch.links.reddit.campaign }}" target="_blank">Click here</a></li>
+        <li *ngIf="this.futureLaunch.links.reddit.launch != undefined">Launch: <a href="{{ this.futureLaunch.links.reddit.launch }}" target="_blank">Click here</a></li>
+        <li *ngIf="this.futureLaunch.links.reddit.media != undefined">Media: <a href="{{ this.futureLaunch.links.reddit.media }}" target="_blank">Click here</a></li>
+        <li *ngIf="this.futureLaunch.links.reddit.recovery != undefined">Recovery: <a href="{{ this.futureLaunch.links.reddit.recovery }}" target="_blank">Click here</a></li>
+      </ul>
+    </span>
+     
+</div>

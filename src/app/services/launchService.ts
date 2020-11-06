@@ -7,7 +7,8 @@ import { Injectable } from '@angular/core';
 })
 export class LaunchService {
 
-    private launch = [];    
+    private launch = [];  
+    private futureLaunch = [];    
 
     constructor() {}
 
@@ -15,9 +16,18 @@ export class LaunchService {
         return of(this.launch);
     }
 
+    getFutureLaunch(): Observable<any>{
+        return of(this.futureLaunch);
+    }
+
     setLaunch(launch :any[]){
         this.launch = launch;
         localStorage.setItem("launch", JSON.stringify(launch));
+    }
+
+    setFutureLaunch(futureLaunch :any[]){
+        this.futureLaunch = futureLaunch;
+        localStorage.setItem("futureLaunch", JSON.stringify(futureLaunch));
     }
 
 }
