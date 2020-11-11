@@ -80,7 +80,7 @@ li span {
     font-size: 4.5rem;
 }
 
-.link a:hover{
+#link:hover{
     text-decoration: underline;
 } 
   
