@@ -1,7 +1,6 @@
-<div class="container col-md-12 text-center">
+<div class="container col-md-12 text-center" id="backgroundPictureContainer">
     <br>
-    <h1 class="text-center">{{ this.launch.name }}</h1>
-    <br>
+    <h1 class="text-center text-white">{{ this.launch.name }}</h1>
     <br>
     <div class="card col-md-12">
       <div class="row">
@@ -48,107 +47,111 @@
         </div>
       </div>
     </div>  
-    <span *ngIf="this.launch.rocket != null">
-      <hr>
-      <h3 class="text-left">Rocket</h3>
-      <br>
-      <app-rocket [rocketId]="this.launch.rocket"></app-rocket>
-    </span>
-    <span *ngIf="this.launch.crew.length != 0">
-      <hr>
-      <h3 class="text-left">Crew members</h3>
-      <br>
-      <div class="container">
+    <br>
+    <div class="card" style="padding: 1em;">
+      <span *ngIf="this.launch.rocket != null">
+        <hr>
+        <h3 class="text-left">Rocket</h3>
+        <br>
+        <app-rocket [rocketId]="this.launch.rocket"></app-rocket>
+      </span>
+      <span *ngIf="this.launch.crew.length != 0">
+        <hr>
+        <h3 class="text-left">Crew members</h3>
+        <br>
+        <div class="container">
+          <div class="row">
+            <span *ngFor="let member of this.launch.crew" style="margin-right: 1em;">
+              <app-crew-member  [crewMemberId]="member"></app-crew-member>
+              <br>
+            </span>
+          </div>
+        </div>    
+      </span>
+      <span *ngIf="this.launch.payloads.length != 0">
+        <hr>
+        <h3 class="text-left">Payload</h3>
+        <br>
+        <app-payload *ngFor="let payload of this.launch.payloads" [payloadId]="payload"></app-payload>
+      </span>
+      <span *ngIf="this.launch.ships.length != 0">
+        <hr>
+        <h3 class="text-left">Recovery ships</h3>
+        <br>
+        <div class="container col-md-12">
+          <div class="row">
+            <span *ngFor="let ship of this.launch.ships" style="margin-right: 1em;" class="shipContainer">
+              <app-recovery-ship [shipId]="ship"></app-recovery-ship>
+              <br>
+            </span>
+          </div>
+        </div>    
+      </span>
+      <span *ngIf="this.launch.failures.length != 0" class="text-left">
+        <hr>
+        <h3>Failures</h3>
+        <br>
+        <span *ngFor="let failure of this.launch.failures; let i=index">
+          <h4>Failure #{{ i+1 }}</h4>
+          <ul>
+            <li>Altitude: {{ (failure.altitude == null)?'-':failure.altitude }}</li>
+            <li>Reason: {{ (failure.reason == null)?'-':failure.reason }}</li>
+            <li>Time: {{ (failure.time == null)?'-':failure.time }}</li>
+          </ul>
+        </span>
+      </span>
+      <span *ngIf="this.launch.launchpad != undefined || this.launch.launchpad.length != 0">
+        <hr>
+        <h3 class="text-left">Launched from <span style="color: gray">(Launchpad info)</span></h3>
+        <br>
         <div class="row">
-          <span *ngFor="let member of this.launch.crew" style="margin-right: 1em;">
-            <app-crew-member  [crewMemberId]="member"></app-crew-member>
-            <br>
-          </span>
-        </div>
-      </div>    
-    </span>
-    <span *ngIf="this.launch.payloads.length != 0">
-      <hr>
-      <h3 class="text-left">Payload</h3>
-      <br>
-      <app-payload *ngFor="let payload of this.launch.payloads" [payloadId]="payload"></app-payload>
-    </span>
-    <span *ngIf="this.launch.ships.length != 0">
-      <hr>
-      <h3 class="text-left">Recovery ships</h3>
-      <br>
-      <div class="container col-md-12">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <app-launchpad [launchpadId]="this.launch.launchpad"></app-launchpad>
+          </div>
+        </div> 
+      </span>
+      <span *ngIf="this.youtubeUrl != undefined && this.youtubeUrl.length > 0">
+        <hr>
+        <h3 class="text-left">Review video stream</h3>
+        <br>
         <div class="row">
-          <span *ngFor="let ship of this.launch.ships" style="margin-right: 1em;" class="shipContainer">
-            <app-recovery-ship [shipId]="ship"></app-recovery-ship>
-            <br>
-          </span>
-        </div>
-      </div>    
-    </span>
-    <span *ngIf="this.launch.failures.length != 0" class="text-left">
-      <hr>
-      <h3>Failures</h3>
-      <br>
-      <span *ngFor="let failure of this.launch.failures; let i=index">
-        <h4>Failure #{{ i+1 }}</h4>
-        <ul>
-          <li>Altitude: {{ (failure.altitude == null)?'-':failure.altitude }}</li>
-          <li>Reason: {{ (failure.reason == null)?'-':failure.reason }}</li>
-          <li>Time: {{ (failure.time == null)?'-':failure.time }}</li>
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <iframe style="width: 100%; height: 400px; max-height: 100%;" [src]="this.youtubeUrl | safe" frameborder="0" allowfullscreen></iframe>
+            <p><a href="{{ this.youtubeUrl }}" target="_blank">Stream not working? Click here</a></p>
+          </div>
+        </div>  
+      </span>
+      <span *ngIf="this.launch.links.reddit.campaign != undefined && this.launch.links.reddit.launch != undefined && this.launch.links.reddit.media != undefined && this.launch.links.reddit.recovery != undefined">
+        <hr>
+        <h3 class="text-left">Reddit</h3>
+        <ul class="text-left">
+          <li *ngIf="this.launch.links.reddit.campaign != undefined">Campaign: <a href="{{ this.launch.links.reddit.campaign }}" target="_blank">Click here</a></li>
+          <li *ngIf="this.launch.links.reddit.launch != undefined">Launch: <a href="{{ this.launch.links.reddit.launch }}" target="_blank">Click here</a></li>
+          <li *ngIf="this.launch.links.reddit.media != undefined">Media: <a href="{{ this.launch.links.reddit.media }}" target="_blank">Click here</a></li>
+          <li *ngIf="this.launch.links.reddit.recovery != undefined">Recovery: <a href="{{ this.launch.links.reddit.recovery }}" target="_blank">Click here</a></li>
         </ul>
       </span>
-    </span>
-    <span *ngIf="this.launch.launchpad != undefined || this.launch.launchpad.length != 0">
-      <hr>
-      <h3 class="text-left">Launched from <span style="color: gray">(Launchpad info)</span></h3>
-      <br>
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-          <app-launchpad [launchpadId]="this.launch.launchpad"></app-launchpad>
+      <span *ngIf="this.launch.links.flickr.original.length != 0">
+        <hr>
+        <h3 class="text-left">Pictures</h3>
+        <div class="row">
+          <div class="col-md-3"></div>
+          <div class="col-md-6">
+            <span *ngFor="let picture of this.launch.links.flickr.original">
+              <table class="text-center col-md-12">
+                <tr>
+                  <td><img src="{{ picture }}" style="max-width: 100%; max-height: 50%;"></td>
+                </tr>
+                <tr>
+                  <td><a href="{{ picture }}" target="_blank">View full picture on Flickr</a></td>
+                </tr>
+              </table>
+            </span>
+          </div>
         </div>
-      </div> 
-    </span>
-    <span *ngIf="this.youtubeUrl != undefined && this.youtubeUrl.length > 0">
-      <hr>
-      <h3 class="text-left">Review video stream</h3>
-      <br>
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-          <iframe style="width: 100%; height: 400px; max-height: 100%;" [src]="this.youtubeUrl | safe" frameborder="0" allowfullscreen></iframe>
-          <p><a href="{{ this.youtubeUrl }}" target="_blank">Stream not working? Click here</a></p>
-        </div>
-      </div>  
-    </span>
-    <span *ngIf="this.launch.links.reddit.campaign != undefined && this.launch.links.reddit.launch != undefined && this.launch.links.reddit.media != undefined && this.launch.links.reddit.recovery != undefined">
-      <hr>
-      <h3 class="text-left">Reddit</h3>
-      <ul class="text-left">
-        <li *ngIf="this.launch.links.reddit.campaign != undefined">Campaign: <a href="{{ this.launch.links.reddit.campaign }}" target="_blank">Click here</a></li>
-        <li *ngIf="this.launch.links.reddit.launch != undefined">Launch: <a href="{{ this.launch.links.reddit.launch }}" target="_blank">Click here</a></li>
-        <li *ngIf="this.launch.links.reddit.media != undefined">Media: <a href="{{ this.launch.links.reddit.media }}" target="_blank">Click here</a></li>
-        <li *ngIf="this.launch.links.reddit.recovery != undefined">Recovery: <a href="{{ this.launch.links.reddit.recovery }}" target="_blank">Click here</a></li>
-      </ul>
-    </span>
-    <span *ngIf="this.launch.links.flickr.original.length != 0">
-      <hr>
-      <h3 class="text-left">Pictures</h3>
-      <div class="row">
-        <div class="col-md-3"></div>
-        <div class="col-md-6">
-          <span *ngFor="let picture of this.launch.links.flickr.original">
-            <table class="text-center col-md-12">
-              <tr>
-                <td><img src="{{ picture }}" style="max-width: 100%; max-height: 50%;"></td>
-              </tr>
-              <tr>
-                <td><a href="{{ picture }}" target="_blank">View full picture on Flickr</a></td>
-              </tr>
-            </table>
-          </span>
-        </div>
-      </div>
-    </span>  
+      </span>  
+    </div>  
+    <br>
 </div>

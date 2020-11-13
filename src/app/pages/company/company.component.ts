@@ -53,9 +53,12 @@ export class CompanyComponent implements OnInit {
       twttr.widgets.createTimeline(
         {
           sourceType: "spacex",
-          screenName: "SpaceX"
+          screenName: "SpaceX",
+          height: 500
         },
-        document.getElementById("tweetContainer")
+        document.getElementById("tweetContainer"),{
+          height: 1300
+        }
       );
     })
 

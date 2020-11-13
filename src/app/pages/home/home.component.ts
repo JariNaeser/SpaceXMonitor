@@ -39,8 +39,7 @@ export class HomeComponent implements OnInit {
               hour = minute * 60,
               day = hour * 24;
       
-        let birthday = "Sep 30, 2021 00:00:00",
-            countDown = new Date(date).getTime(),
+            let countDown = new Date(date).getTime(),
             x = setInterval(function() {    
       
               let now = new Date().getTime(),
